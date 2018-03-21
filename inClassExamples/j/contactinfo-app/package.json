@@ -1,0 +1,21 @@
+{
+  "name": "contactinfo-app",
+  "version": "1.0.0",
+  "description": "app to store contactinfo results in mongodb",
+  "main": "app.js",
+  "scripts": {
+    "test": "node, mongoose, contact"
+  },
+  "keywords": [
+    "node",
+    "mongodb",
+    "mongoose",
+    "calculator"
+  ],
+  "author": "Nicole Clark",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.0.10"
+  }
+}

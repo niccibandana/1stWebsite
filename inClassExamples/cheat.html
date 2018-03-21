@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<link href="styles.css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div class="container">
+<h5>Calculator</h5>
+
+<input type="text" class="input" id="txtInput2" readonly="true" />
+<input type="text" class="input" id="txtOperator" readonly="true" />
+<input type="text" class="input" id="txtInput1" readonly="true" />
+<div>
+<hr/> </div>
+<div class="controls">
+<button class="btn" disabled="disabled"></button>
+<button onclick="del()" class="btn">del </button>
+<button onclick="reset()">C</button>
+<button onclick="onClick(event)">/</button>
+
+
+
+<button onclick="onClick(event)">7</button>
+<button onclick="onClick(event)">8</button>
+<button onclick="onClick(event)">9</button>
+<button onclick="onClick(event)">*</button>
+
+<button onclick="onClick(event)">4</button>
+<button onclick="onClick(event)">5</button>
+<button onclick="onClick(event)">6</button>
+<button onclick="onClick(event)">-</button>
+
+<button onclick="onClick(event)">1</button>
+<button onclick="onClick(event)">2</button>
+<button onclick="onClick(event)">3</button>
+<button onclick="onClick(event)">+</button>
+
+
+<button disabled="disabled"></button>
+<button onclick="onClick(event)">0</button>
+<button onclick="onDecimal()">.</button>
+<button onclick="calculate()">=</button>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
+-----------------
+var input1 = document.getElementById("txtInput1");
+var input2 = document.getElementById("txtInput2");
+var inputOp = document.getElementById("txtOperator");
+var operand1;
+var operand2;
+
+/**
+
+*Function to give input. 
+* @param evt: Will have event information. 
+* This will help us findout which button is clicked 
+*/
+function onClick(evt) {
+var char = evt.target.innerText;
+
+if (isOperator(char)) {
+if (input1.value) {
+operand1 = input1.value;
+inputOp.value = char;
+}
+}
+else {
+if (operand1) {
+input2.value += char;
+}
+else {
+input1.value += char;
+}
+}
+}
+
+/**
+* 
+* @param char: To know whether user has clicked on operator buttons such as +,-,* and / 
+*/
+function isOperator(char) {
+if (char === '+' || char == '-' || char == '*' || char == '/') {
+return true;
+}
+else {
+return false;
+}
+}
+
+/** 
+* Click event handler for button "C". This resets the calculator
+*/
+function reset() {
+input1.value = "";
+input2.value = "";
+operand1 = null;
+operand2 = null;
+inputOp.value = "";
+}
+
+/** Event handler for delete key. works like a backspace*/
+function del() {
+if (!operand1) {
+var val = input1.value;
+input1.value = removeChar(val);
+}
+else {
+var val = input2.value;
+input2.value = removeChar(val);
+}
+}
+
+//function to handle dot(.) button. Only one decimal is allowed
+function onDecimal() {
+if (operand1) {
+var val = input2.value;
+if (val.indexOf('.') > -1) return;
+input2.value += ".";
+}
+else {
+var val = input1.value;
+if (val.indexOf('.') > -1) return;
+input1.value += ".";
+}
+}
+
+function removeChar(val) {
+if (val) {
+return val.substring(0, val.length - 1);
+}
+return "";
+}
+
+//calculates the result when user clicks on (=) button
+function calculate() {
+if (operand1 && input2.value) {
+var op1 = +operand1;
+var op2 = +input2.value;
+var op = inputOp.value;
+
+reset();
+input1.value = calculateResult(op1, op2, op);
+}
+}
+
+function calculateResult(op1, op2, operator) {
+
+switch (operator) {
+
+case '+':
+return op1 + op2;
+case '-':
+return op1 - op2;
+case '*':
+return op1 * op2;
+case '/':
+if (op2 == 0) {
+alert("Can not divide by zero");
+return 0;
+}
+var result = op1 / op2;
+if (Number.isInteger(result)) return result;
+return result.toFixed(2);
+
+default:
+return 0;
+}
+}
