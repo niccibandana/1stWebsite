@@ -1,27 +1,42 @@
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+
+<!------ Include the above in your HEAD tag ---------->
 
 <div class="container">
-    <form action="action_page.php">
-  
-      <label for="fname">First Name</label>
-      <input type="text" id="fname" name="firstname" placeholder="Your name..">
-  
-      <label for="lname">Last Name</label>
-      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
-      <label for="phonenumber">Phone Number</label>
-      <input type="text" id="phnumber" name="phnumber" placeholder="Your phone number">
-
-      <label for="message">Message Type</label>
-      <select id="messagetype" name="Message">
-        <option value="Complaint">Complaint</option>
-        <option value="Request">Request</option>
-        <option value="Other">Other</option>
-      </select>
-  
-      <label for="subject">Subject</label>
-      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-  
-      <input type="submit" value="Submit">
-  
+	<form class="well span8">
+        <div class="row">
+            <div class="span3">
+                <label>First Name</label> <input class="span3" placeholder=
+                "Your First Name" type="text"> <label>Last Name</label>
+                <input class="span3" placeholder="Your Last Name" type="text">
+                <label>Email Address</label> <input class="span3" placeholder=
+                "Your email address" type="text"> <label>Subject</label>
+                <select class="span3" id="subject" name="subject">
+                    <option selected value="na">
+                        Choose One:
+                    </option>
+    
+                    <option value="service">
+                        Requests
+                    </option>
+    
+                    <option value="suggestions">
+                        General Inquiries
+                    </option>
+    
+                    <option value="product">
+                        Product Support
+                    </option>
+                </select>
+            </div>
+    
+            <div class="span5">
+                <label>Message</label> 
+                <textarea class="input-xlarge span5" id="message" name="message"
+                rows="10">
+    </textarea>
+            </div><button class="btn btn-primary pull-right" type=
+            "submit">Send</button>
+        </div>
     </form>
-  </div>
+</div>

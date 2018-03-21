@@ -41,7 +41,6 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 });
 
-});
 app.get("/bootstrap.css", (req, res) =>{
     //sendFile is a method in express framework that sends file back 
     //to client
