@@ -1,0 +1,21 @@
+{
+  "name": "phonebook-app",
+  "version": "1.0.0",
+  "description": "app to store phonebook info in mongodb",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "phone",
+    "email",
+    "number",
+    "address",
+    "name"
+  ],
+  "author": "Nicole Clark",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

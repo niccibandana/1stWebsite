@@ -8,4 +8,4 @@
 String makeOutWord=["<<>>", "pickles"]{
     return "<<>>".substring(0,2) + "pickles" + 
 }
-var 
+console.log(makeOutWord);

@@ -1,0 +1,22 @@
+{
+  "name": "blackbook-app",
+  "version": "1.0.0",
+  "description": "app to store name and messages for clients",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"mongodb\" && exit 1"
+  },
+  "keywords": [
+    "phone",
+    "name",
+    "number",
+    "node",
+    "mongodb"
+  ],
+  "author": "Nicole-Clark",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.0.11"
+  }
+}
