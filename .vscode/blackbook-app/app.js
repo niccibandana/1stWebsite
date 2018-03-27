@@ -4,7 +4,7 @@ var express = require("express");
 //bootstrap the app to express 
 var app=express();
 //run this app on port 3000
-var port=3000;
+var port=4000;
 
 //body parser is a module in express package that helps apps
 //parse data in http req body 
@@ -21,15 +21,20 @@ mongoose.Promise = global.Promise;
 
 
 //connect the app to the db in the specified location
-mongoose.connect("mongodb://localhost:27017/blackbookApp")
+mongoose.connect("mongodb://localhost:27017/blackbook-app")
 //create a variable for document schema
-var contactSchema = new mongoose.Schema({
+var profileSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
+    emailAddress: String,
+    subject: String,
+    message: String,
+
     created_at: {type: Date, default: Date.now()}
 });
+app.set('view engine', 'ejs');
 
-var Contact = mongoose.model("ContactInfo", contactSchema);
+var Contact = mongoose.model("Profile", profileSchema);
 
 //binding root context localhost:3000
 //to GET method that responds with index.html file
@@ -40,6 +45,15 @@ app.get("/", (req, res) => {
     //to the client
     res.sendFile(__dirname + "/index.html");
 });
+app.get("/", (req, res) =>{
+    //sendFile is a method in express framework that sends file back 
+    //to client
+    
+    Contact.find ((err, result) => {
+    if (err) return console.log(err)
+    res.render ('index.ejs', {contacts:result})
+    })
+})
 
 app.get("/bootstrap.css", (req, res) =>{
     //sendFile is a method in express framework that sends file back 
@@ -47,7 +61,7 @@ app.get("/bootstrap.css", (req, res) =>{
     res.sendFile(__dirname + "/bootstrap.css")
 });
 
-app.post("/saveContact", (req, res)=> {
+app.post("/saveProfile", (req, res)=> {
     console.log("My request" + req);
     console.log("My request body" + req.body);
     var myData= new Contact(req.body);

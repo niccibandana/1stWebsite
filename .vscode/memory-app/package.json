@@ -1,0 +1,32 @@
+{
+  "name": "memory-app",
+  "version": "1.0.0",
+  "description": "app to store guestbook info results in mongodb",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "keywords": [
+    "node",
+    "mongodb",
+    "mongoose",
+    "guestbook"
+  ],
+  "author": "Nicole_Clark",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express.js": "^1.0.0",
+    "mongoose": "^5.0.11",
+    "npm": "^5.7.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niccibandana/JavaScriptBasicsRepoRam.git"
+  },
+  "bugs": {
+    "url": "https://github.com/niccibandana/JavaScriptBasicsRepoRam/issues"
+  },
+  "homepage": "https://github.com/niccibandana/JavaScriptBasicsRepoRam#readme"
+}

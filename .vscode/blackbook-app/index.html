@@ -1,17 +1,20 @@
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
 
-<!------ Include the above in your HEAD tag ---------->
 
 <div class="container">
-	<form class="well span8">
+	<form action="saveProfile" method="post">
         <div class="row">
             <div class="span3">
-                <label>First Name</label> <input class="span3" placeholder=
-                "Your First Name" type="text"> <label>Last Name</label>
-                <input class="span3" placeholder="Your Last Name" type="text">
-                <label>Email Address</label> <input class="span3" placeholder=
-                "Your email address" type="text"> <label>Subject</label>
-                <select class="span3" id="subject" name="subject">
+                <label for=firstname>First Name</label> 
+                
+                <input type="text" id="firstname" name="firstName" placeholder="Your First Name">
+                 <label for=lastname>Last Name</label>
+                
+                <input type="text" id="lastname" name="lastName" placeholder="Your Last Name">
+
+                <label for="email">Email</label>
+                <input type= "text" id="email" name="emailAddress" placeholder="Your email address..">
+                <select type="text" class="span3" id="subject" name="subject">
                     <option selected value="na">
                         Choose One:
                     </option>
@@ -32,7 +35,7 @@
     
             <div class="span5">
                 <label>Message</label> 
-                <textarea class="input-xlarge span5" id="message" name="message"
+                <textarea type="text" id="message" name="message"
                 rows="10">
     </textarea>
             </div><button class="btn btn-primary pull-right" type=
