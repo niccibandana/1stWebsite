@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1 Steps for Instafame 
+    body
+        ul
+            each task, i in tasklist
+                li= task.description
+    
